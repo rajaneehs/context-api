@@ -5,7 +5,7 @@
 > Used To pass property values thru' different level of components effectively.
 > Context provides a way to pass data thru' the component tree **without having to pass props down manually at every level**.
 
-3 steps to implement
+3 steps to implement:
 
 1. Create the Context
 2. Provide a Context value
@@ -17,7 +17,7 @@ Every **Context object** created using createContext() comes with a **Provider**
 > App component will be a good place, as pretty much all components comes under it.
 
 Provider component is responsible for providing values for all the decendent components.
-(ex. here it is username)
+(In this case `username`)
 
 > To consume a context value we need to use Consumer component.
 
@@ -31,7 +31,7 @@ Provider component is responsible for providing values for all the decendent com
    It is passed as an arg to the createContext().
    The default value will only be used when a component does not have a matching Provider above it in the component tree.
 
-2. contextType property on a class - Another way to consume the context value
+2. contextType property on a class is another way to consume the context value <br>
    Steps:
 
 - Export the context itself
