@@ -1,68 +1,40 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Context API
 
-## Available Scripts
+### Points
 
-In the project directory, you can run:
+> Used To pass property values thru' different level of components effectively.
+> Context provides a way to pass data thru' the component tree **without having to pass props down manually at every level**.
 
-### `yarn start`
+3 steps to implement
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Create the Context
+2. Provide a Context value
+3. Consume the Context value
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Every **Context object** created using createContext() comes with a **Provider** component & **Consumer** component.
 
-### `yarn test`
+> Provider component can be consumed only by the decendent components.
+> App component will be a good place, as pretty much all components comes under it.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Provider component is responsible for providing values for all the decendent components.
+(ex. here it is username)
 
-### `yarn build`
+> To consume a context value we need to use Consumer component.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> Within Consumer component, we need to specify a function <kbd>{() => {}}</kbd> <br>
+> It gets the context value as its parameter, which can be used within the function body to return a react element/ JSX.
+> As above, send function as a child to the Consumer component
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+#### Misc
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. We can set a default value to our context & it is set while creating the context.<br>
+   It is passed as an arg to the createContext().
+   The default value will only be used when a component does not have a matching Provider above it in the component tree.
 
-### `yarn eject`
+2. contextType property on a class - Another way to consume the context value
+   Steps:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Export the context itself
+- Assign this context to the contextType property on the class.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+> In the render() context value will be available as <kbd>{this.context}</kbd>
