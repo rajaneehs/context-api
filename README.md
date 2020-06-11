@@ -21,7 +21,7 @@ Provider component is responsible for providing values for all the decendent com
 
 > To consume a context value we need to use Consumer component.
 
-> Within Consumer component, we need to specify a function <kbd>{() => {}}</kbd> <br>
+> Within Consumer component, we need to specify a function `{() => {}}` <br>
 > It gets the context value as its parameter, which can be used within the function body to return a react element/ JSX.
 > As above, send function as a child to the Consumer component
 
@@ -37,4 +37,4 @@ Provider component is responsible for providing values for all the decendent com
 - Export the context itself
 - Assign this context to the contextType property on the class.
 
-> In the render() context value will be available as <kbd>{this.context}</kbd>
+> In the render() context value will be available as `{this.context}`
